@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Специи - VIKOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          Arial,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        line-height: 1.6;
+        color: #000;
+        background-color: #fff;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family:
+          Georgia,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      /* Header Styles */
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: #080730;
+        border-bottom: 1px solid #6a6a6a;
+        height: 103px;
+        padding: 0 21px;
+        width: 100%;
+      }
+
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1280px;
+        width: 100%;
+        .logo img {
+  margin-left: 60px; /* смещает логотип правее */
+}
+      }
+
+      .logo {
+        width: 165px;
+        height: 69px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .nav-list {
+        display: flex;
+        align-items: center;
+        height: 102px;
+        list-style: none;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        position: relative;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 700;
+        height: 50px;
+        justify-content: center;
+        padding: 0 16px;
+        text-transform: uppercase;
+        transition: background-color 0.15s;
+        text-decoration: none;
+        font-size: 15px;
+      }
+
+      .nav-link:hover {
+        background-color: #1c1a6d;
+      }
+
+      .nav-link--products {
+        width: 190px;
+        font-size: 16px;
+      }
+
+      .nav-link--about {
+        width: 180px;
+        font-size: 16px;
+      }
+
+      .nav-link--partners {
+        width: 167px;
+      }
+
+      .nav-link--contacts {
+        width: 156px;
+      }
+
+      .dropdown-arrow {
+        border-color: #fff;
+        border-right: 1px solid;
+        border-top: 1px solid;
+        height: 7px;
+        margin-left: 12px;
+        width: 7px;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-item:hover .dropdown-arrow {
+        transform: rotate(135deg);
+      }
+
+      /* Dropdown Menu */
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #080730;
+        border: 1px solid #6a6a6a;
+        border-radius: 4px;
+        padding: 8px 0;
+        min-width: 190px;
+        width: 190px;
+        z-index: 1000;
+        display: none;
+      }
+
+      .nav-item:hover .nav-dropdown {
+        display: block;
+      }
+
+      .dropdown-item {
+        display: block;
+        padding: 8px 16px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: background-color 0.15s;
+      }
+
+      .dropdown-item:hover {
+        background-color: #1c1a6d;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        width: 100%;
+        height: 700px;
+        overflow: hidden;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 700px;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+      }
+
+      
+
+      .hero-title {
+        color: hsl(246, 81%, 21%);
+        font-family: "Great Vibes", cursive;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 60px;
+        text-align: center;
+      }
+
+      .page-title {
+        text-align: center;
+        padding: 40px 16px;
+        background-color: #fff;
+      }
+
+      .page-title h1 {
+        color: #1c1a6d;
+        font-family: Georgia, serif;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 43px;
+        margin-bottom: 0;
+      }
+
+      /* Content Sections */
+      .content-section {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 40px 27px;
+      }
+
+      .section-title {
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 22px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+
+      .section-text {
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 22px;
+        margin-bottom: 30px;
+      }
+
+      .advantages-text {
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 19px;
+        line-height: 22px;
+        margin-bottom: 40px;
+      }
+
+      .advantages-text strong {
+        font-weight: 700;
+      }
+
+      .product-section {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 60px;
+      }
+
+     
+
+      .product-image {
+        width: 477px;
+        height: 405px;
+        object-fit: cover;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+      }
+      body {
+  font-family: Arial, sans-serif; /* Унифицированный шрифт для всего текста */
+}
+
+ul {
+  list-style: none; /* Убираем точки перед элементами списка */
+  padding: 0;       /* Убираем отступы у списка */
+  margin: 0;        /* Убираем внешние отступы */
+}
+
+ul li {
+  position: relative; /* Для добавления кастомной галочки */
+  margin-bottom: 8px; /* Отступ между пунктами */
+  font-size: 16px;    /* Размер текста для списка */
+}
+.product-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.product-info {
+  flex: 1;
+  text-align: left;
+}
+
+.photo-right {
+  width: 300px; /* или другое значение */
+  height: auto;
+  object-fit: contain;
+}
+
+.advantages-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.advantages-list li::before {
+  content: "✓ ";
+  color: green;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+
+.advantages-list li::before {
+  content: '✓';
+  color: green;
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+
+
+      .product-image-small {
+        width: 377px;
+        height: 366px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      /* Footer */
+      .footer {
+        width: 100%;
+        height: 185px;
+        background-color: #080730;
+        padding: 39px 16px 33px;
+      }
+
+      .footer-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+  width: 177px;
+  height: 80px;
+  background-image: url("main_logo.png");
+  background-size: 170px 85px; /* <-- Размер изображения */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+      .footer-copyright {
+        color: #999;
+        font-size: 13px;
+        line-height: 13px;
+        max-width: 220px;
+      }
+
+      .footer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .footer-link {
+        color: #fff;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+
+      .footer-link:hover {
+        color: #c4c4c4;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .contact-icon {
+        width: 16px;
+        height: 16px;
+        background-color: #fff;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .contact-icon--email {
+        height: 13px;
+        border-radius: 2px;
+      }
+
+      .contact-text {
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .footer-social {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      .social-link {
+        color: #c4c4c4;
+        font-weight: 700;
+        font-size: 12px;
+        text-decoration: none;
+      }
+
+      .btn {
+        background-color: #1c1a6d;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 16px 34px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.15s;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        box-shadow: 0px 3px 0px 0px #010016;
+      }
+
+      .btn:hover {
+        background-color: rgba(28, 26, 109, 0.9);
+        transform: translateY(-1px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .nav {
+          display: none;
+        }
+
+ 
+
+
+        .product-image,
+        .product-image-small {
+          width: 100%;
+          max-width: 400px;
+          height: auto;
+        }
+
+        .hero-title {
+          font-size: 36px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-title h1 {
+          font-size: 28px;
+        }
+
+        .section-title {
+          font-size: 28px;
+        }
+
+        .section-text,
+        .advantages-text {
+          font-size: 16px;
+        }
+
+        .footer-container {
+          flex-direction: column;
+          gap: 24px;
+          height: auto;
+        }
+
+        .footer {
+          height: auto;
+          padding: 40px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <!-- Logo -->
+        <a href="vikos.html" class="logo">
+          <img
+            src="main_logo.png"
+            alt="Логотип"
+            width="300"
+            height="100"
+            style="display: block; margin-left: 100px;"
+          />
+        </a>
+      </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+          <ul class="nav-list">
+          </li>
+          <li class="nav-item">
+            <a href="vikos.html" class="nav-link nav-link--about"
+              >Главная</a
+            >
+          </li>
+            <li class="nav-item">
+              <a href="vikos.html#products" class="nav-link nav-link--products">
+                <span>Продукция</span>
+                <div class="dropdown-arrow"></div>
+              </a>
+              <!-- Dropdown Menu -->
+              <div class="nav-dropdown">
+                <a href="obolochki.html" class="dropdown-item">оболочки</a>
+                <a href="marinad.html" class="dropdown-item">маринады</a>
+                <a href="specii.html" class="dropdown-item">специи</a>
+                <a href="#" class="dropdown-item">добавки</a>
+                <a href="#" class="dropdown-item">erp-system</a>
+                <a href="#" class="dropdown-item">оборудование</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="vikos.html#about" class="nav-link nav-link--about"
+                >О компании</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="vikos.html#partners" class="nav-link nav-link--partners"
+                >Партнерам</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="vikos.html#contacts" class="nav-link nav-link--contacts"
+                >Контакты</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section"> 
+      <img
+        src="curry-scaled.jpg"
+        alt="Специи"
+        class="hero-image"
+      />
+      <div class="hero-content">
+    
+        <img
+        src="image 2.png"
+        alt="Логотип"
+        width="300"
+        height="250"
+        style="display: block;"
+      />
+        <h2 class="hero-title">Всё лучшее для успеха!</h2>
+      </div>
+    </section>
+
+    <!-- Page Title -->
+    <section class="page-title" >
+      
+
+       
+
+      <h1>Смеси натуральных пряностей и специй</h1>
+  `
+  <section class="content-section">
+    <div class="product-section">
+      <div class="product-info">
+ 
+        
+      
+            <p style="text-indent: 20px;"> Отличительной особенностью наших смесей является качество, т.к. они содержат большое количество эфирных масел, что играет немаловажную роль в производстве мясных продуктов, позволяет улучшить их ароматические характеристики, придать изделию оригинальный и индивидуальный вкус.</p>
+  
+       
+   
+  </section>
+
+
+<!-- NALO -->
+<section class="content-section"  >
+    <div class="product-section">
+      <div class="product-info">
+        <div style="margin-top: -100px;"></div>
+
+
+       
+        <h3>Мы рады предложить Вам:</h3>
+        <p>&nbsp</p>
+        <ul class="advantages-list">
+          <li>специи и пряности;</li>
+          <li>сушеные овощи;</li>
+          <li>декоративные панировочные смеси, применение которых придаёт изделиям аппетитный вид и выразительный вкус.</li>
+       
+         
+        </ul>
+      </div>
+      
+      <img src="produkty-povyshayushchie-testosteron-u-muzhchin-chto-nuzhno-est-dlya-povysheniya7.jpg" alt="NALO FASER" class="photo-right" style="margin-top: 0px; width:40%; height: auto; margin-top: -120px;"/>
+     
+    </div>
+  </section>
+  
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+           
+          </div>
+          <p class="footer-copyright">
+            © 2025 ООО "Викос"<br />
+            Все права защищены.
+          </p>
+        </div>
+        <div class="footer-nav">
+          <a href="index.html#products" class="footer-link">Продукция</a>
+          <a href="#partners" class="footer-link">Партнерам</a>
+          <a href="index.html#contacts" class="footer-link">Контакты</a>
+        </div>
+        <div class="footer-contact">
+          <div class="contact-item">
+            <div class="contact-icon"></div>
+            <span class="contact-text">+375 17 210 59 35</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon contact-icon--email"></div>
+            <span class="contact-text">office@vikos.by</span>
+          </div>
+        </div>
+        <a href="vikos.html#contact" class="btn">Обратная связь</a>
+        <div class="footer-social">
+          <a href="#" class="social-link">#vikoslovesyou</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

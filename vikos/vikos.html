@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIKOS 
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          Arial,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        line-height: 1.6;
+        color: #000;
+        background-color: #fff;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family:
+          Georgia,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      /* Header Styles */
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: #080730;
+        border-bottom: 1px solid #6a6a6a;
+        height: 103px;
+        padding: 0 21px;
+        width: 100%;
+      }
+
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1280px;
+        width: 100%;
+      }
+
+      .logo {
+        width: 165px;
+        height: 69px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .nav-list {
+        display: flex;
+        align-items: center;
+        height: 102px;
+        list-style: none;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        position: relative;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 700;
+        height: 50px;
+        justify-content: center;
+        padding: 0 16px;
+        text-transform: uppercase;
+        transition: background-color 0.15s;
+        text-decoration: none;
+        font-size: 15px;
+      }
+
+      .nav-link:hover {
+        background-color: #1c1a6d;
+      }
+
+      .nav-link--products {
+        width: 190px;
+        font-size: 16px;
+      }
+
+      .nav-link--about {
+        width: 180px;
+        font-size: 16px;
+      }
+
+      .nav-link--partners {
+        width: 167px;
+      }
+
+      .nav-link--contacts {
+        width: 156px;
+      }
+
+      .dropdown-arrow {
+        border-color: #fff;
+        border-right: 1px solid;
+        border-top: 1px solid;
+        height: 7px;
+        margin-left: 12px;
+        width: 7px;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-item:hover .dropdown-arrow {
+        transform: rotate(135deg);
+      }
+
+      /* Dropdown Menu */
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #080730;
+        border: 1px solid #6a6a6a;
+        border-radius: 4px;
+        padding: 8px 0;
+        min-width: 190px;
+        width: 190px;
+        z-index: 1000;
+        display: none;
+      }
+
+      .nav-item:hover .nav-dropdown {
+        display: block;
+      }
+
+      .dropdown-item {
+        display: block;
+        padding: 8px 16px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: background-color 0.15s;
+      }
+
+      .dropdown-item:hover {
+        background-color: #1c1a6d;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 800px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      .hero-bg {
+        background-image: url("/Users/tatanapylinskaa/Desktop/vikos/Curry-Roux.jpg");
+        background-position: 50% 50%;
+        background-size: cover;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .hero-overlay {
+        background:
+          linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 18.76%),
+          rgba(0, 0, 0, 0.3);
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .hero-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        padding: 0 16px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero-logo {
+        width: 165px;
+        height: 143px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .hero-title {
+        color: #fff;
+        font-family: "Great Vibes", cursive;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 60px;
+        margin-bottom: 32px;
+        max-width: 460px;
+        text-align: center;
+      }
+
+      .btn {
+        display: block;
+        background-color: #1c1a6d;
+        border-radius: 4px;
+        box-shadow: 0px 3px 0px 0px #010016;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20.8px;
+        padding: 16px 40px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: all 0.15s;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: rgba(28, 26, 109, 0.9);
+        box-shadow: 0px 1px 0px 0px #010016;
+        transform: translateY(2px);
+      }
+
+      /* Catalog Section */
+      .catalog {
+        padding: 64px 16px;
+        width: 100%;
+      }
+
+      .catalog-container {
+        margin: 0 auto;
+        max-width: 1280px;
+        position: relative;
+      }
+
+      .catalog-title {
+        color: #1c1a6d;
+        font-family: Georgia, serif;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 43px;
+        margin-bottom: 64px;
+        text-align: center;
+      }
+
+      .catalog-grid {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(3, 1fr);
+        position: relative;
+        border: 3px solid #fff;
+      }
+
+      .catalog-item {
+        display: flex;
+        align-items: flex-end;
+        background-color: #fff;
+        border: 1px solid #f7f7f7;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 18px;
+        transition: box-shadow 0.15s;
+        text-decoration: none;
+        color: inherit;
+        height: 417px;
+        position: relative;
+      }
+
+      .catalog-item:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .catalog-item--tall {
+        height: 450px;
+      }
+
+      .catalog-image {
+        width: 289px;
+        height: 180px;
+        object-fit: cover;
+        position: absolute;
+        top: 91px;
+        left: 18px;
+      }
+
+      .catalog-item-title {
+        display: flex;
+        align-items: center;
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        height: 22px;
+        line-height: 22px;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 32px;
+      }
+
+      .catalog-item-title--multiline {
+        height: 66px;
+        text-align: center;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+     
+
+      /* Advantages Section */
+      .advantages {
+        position: relative;
+        width: 100%;
+        height: 723px;
+        overflow: hidden;
+        background: url("shiva-spice-home-04.jpg")
+          lightgray -320px 0px / 150% 100% no-repeat;
+      }
+
+      .advantages-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .advantages-content {
+        position: relative;
+        z-index: 10;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 16px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .advantages-inner {
+        width: 50%;
+        margin-left: auto;
+        margin-right: 64px;
+      }
+
+      .advantages-title {
+        color: #fff;
+        font-family: Georgia, serif;
+        font-weight: 700;
+        font-size: 37px;
+        line-height: 48px;
+        margin-bottom: 64px;
+      }
+
+      .advantages-list {
+        margin-bottom: 64px;
+      }
+
+      .advantage-item {
+        display: flex;
+        align-items: center;
+        padding: 16px 0;
+        border-bottom: 1px solid #505050;
+      }
+
+      .advantage-item:last-child {
+        border-bottom: none;
+      }
+
+      .advantage-icon {
+  width: 40px;
+  height: 37px;
+  margin-right: 28px;
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+
+      .advantage-title {
+        color: #fff;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 20px;
+      }
+
+      .advantages-decoration {
+        position: absolute;
+        right: 80px;
+        bottom: 67px;
+        width: 249px;
+        height: 277px;
+        background: url("")
+          no-repeat center;
+        background-size: cover;
+        opacity: 0.8;
+      }
+
+      /* Company History Section */
+      .history {
+        width: 100%;
+        padding: 80px 16px;
+        background-color: #fff;
+      }
+
+      .history-container {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .history-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 0;
+      }
+
+      .history-item {
+        display: flex;
+        padding: 0 32px;
+      }
+
+      .history-number {
+        flex-shrink: 0;
+        margin-right: 24px;
+        color: #e8e8e8;
+        font-family: Georgia, serif;
+        font-size: 96px;
+        line-height: 96px;
+        user-select: none;
+      }
+
+      .history-content {
+        flex: 1;
+        padding-top: 4px;
+      }
+
+      .history-text {
+        color: #000;
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 24px;
+      }
+
+      .history-text strong {
+        font-weight: 700;
+      }
+
+      .history-highlights {
+        color: #000;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 22px;
+        margin-bottom: 24px;
+      }
+
+      /* Contact Form Section */
+      .contact {
+        position: relative;
+        width: 100%;
+        height: 544px;
+        overflow: hidden;
+        background: url("support_bg.jpg")
+          lightgray -320.335px 0px / 150.052% 100% no-repeat;
+      }
+
+      .contact-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .contact-content {
+        position: relative;
+        z-index: 10;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 16px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-inner {
+        width: 100%;
+        max-width: 625px;
+        margin-left: 150px;
+      }
+
+      .contact-title {
+        color: #fff;
+        font-family: Georgia, serif;
+        font-weight: 700;
+        font-size: 33px;
+        line-height: 43px;
+        margin-bottom: 48px;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .form-input {
+        width: 100%;
+        height: 49px;
+        padding: 16px 20px;
+        background-color: rgba(250, 250, 250, 0.08);
+        border: 1px solid #7a7a7a;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+      }
+
+      .form-textarea {
+        width: 100%;
+        height: 140px;
+        padding: 16px 20px;
+        background-color: rgba(250, 250, 250, 0.08);
+        border: 1px solid #7a7a7a;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        resize: none;
+      }
+
+      .form-input::placeholder,
+      .form-textarea::placeholder {
+        color: #fff;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: #fff;
+      }
+
+      .btn--submit {
+        font-size: 13px;
+        padding: 16px 53px;
+        align-self: flex-start;
+      }
+
+      /* Footer */
+      .footer {
+        width: 100%;
+        height: 185px;
+        background-color: #080730;
+        padding: 39px 16px 33px;
+      }
+
+      .footer-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+  width: 177px;
+  height: 80px;
+  background-image: url("main_logo.png");
+  background-size: 170px 85px; /* <-- Размер изображения */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+
+      .footer-copyright {
+        color: #999;
+        font-size: 13px;
+        line-height: 13px;
+        max-width: 220px;
+      }
+
+      .footer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .footer-link {
+        color: #fff;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+
+      .footer-link:hover {
+        color: #c4c4c4;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .contact-icon {
+        width: 16px;
+        height: 16px;
+        background-color: #fff;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .contact-icon--email {
+        height: 13px;
+        border-radius: 2px;
+      }
+
+      .contact-text {
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .footer-social {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      .social-link {
+        color: #c4c4c4;
+        font-weight: 700;
+        font-size: 12px;
+        text-decoration: none;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .nav {
+          display: none;
+        }
+
+        .hero-title {
+          font-size: 36px;
+          line-height: 44px;
+        }
+
+        .advantages-inner {
+          width: 100%;
+          margin-right: 0;
+        }
+
+        .contact-inner {
+          margin-left: 0;
+        }
+
+        .history-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .advantages-decoration,
+        .catalog-decoration-left,
+        .catalog-decoration-right {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .catalog-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+          font-size: 32px;
+          line-height: 36px;
+        }
+
+        .catalog-title {
+          font-size: 28px;
+        }
+
+        .advantages-title {
+          font-size: 28px;
+        }
+
+        .contact-title {
+          font-size: 28px;
+        }
+
+        .footer-container {
+          flex-direction: column;
+          gap: 24px;
+          height: auto;
+        }
+
+        .footer {
+          height: auto;
+          padding: 40px 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header {
+          padding: 0 16px;
+        }
+
+        .catalog-item {
+          height: auto !important;
+          min-height: 100px;
+          padding: 24px 16px;
+        }
+
+        .hero-title {
+          font-size: 28px;
+          line-height: 32px;
+        }
+
+        .hero-logo {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <!-- Logo -->
+       <!-- Логотип слева -->
+<a href="vikos.html" class="logo">
+  <img
+    src="main_logo.png"
+    alt="Логотип"
+    width="300"
+    height="100"
+    style="display: block;"
+  />
+</a>
+
+
+        <!-- Navigation -->
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#products" class="nav-link nav-link--products">
+                <span>Продукция</span>
+                <div class="dropdown-arrow"></div>
+              </a>
+              <!-- Dropdown Menu -->
+              <div class="nav-dropdown">
+                <a href="obolochki.html" class="dropdown-item">оболочки</a>
+                <a href="marinad.html" class="dropdown-item">маринады</a>
+                <a href="specii.html" class="dropdown-item">специи</a>
+                <a href="#" class="dropdown-item">добавки</a>
+                <a href="#" class="dropdown-item">erp-system</a>
+                <a href="#" class="dropdown-item">оборудование</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link nav-link--about">О компании</a>
+            </li>
+            <li class="nav-item">
+              <a href="#partners" class="nav-link nav-link--partners"
+                >Партнерам</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#contacts" class="nav-link nav-link--contacts"
+                >Контакты</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-logo">
+           <img
+    src="logo_big.png"
+    alt="Логотип"
+    width="300"
+    height="250"
+    style="display: block;"
+  />
+        </div>
+        <div style="margin-top: 90px;"></div>
+        <h1 class="hero-title">Всё лучшее для успеха!</h1>
+        <a href="#contact" class="btn">Обратная связь</a>
+      </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="catalog" id="products">
+      <div class="catalog-container">
+        <div class="catalog-decoration-left"></div>
+        <div class="catalog-decoration-right"></div>
+
+        <h2 class="catalog-title">Каталог</h2>
+        <div class="catalog-grid">
+          <a href="obolochki.html" class="catalog-item">
+            <img
+              src="obol3.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+              alt="оболочки"
+              class="catalog-image"
+            />
+            <h3 class="catalog-item-title">оболочки</h3>
+          </a>
+          <a href="marinad.html" class="catalog-item">
+            <img
+              src="aromo-3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+              alt="Маринады"
+              class="catalog-image"
+            />
+            <h3 class="catalog-item-title">Маринады</h3>
+          </a>
+          <a href="specii.ht" class="catalog-item">
+            <img
+              src="spices-and-herbs-copy.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+              alt="специи"
+              class="catalog-image"
+            />
+            <h3 class="catalog-item-title">специи</h3>
+          </a>
+          <a href="#" class="catalog-item catalog-item--tall">
+            <img
+              src="somelinks_pic_2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+              alt="добавки"
+              class="catalog-image"
+            />
+            <h3 class="catalog-item-title">добавки</h3>
+          </a>
+          <a href="#" class="catalog-item catalog-item--tall">
+            <img
+              src="Без названия.jpeg"
+              alt="erp-System"
+              class="catalog-image"
+            />
+            <h3 class="catalog-item-title">erp-System</h3>
+          </a>
+          <a href="#" class="catalog-item catalog-item--tall">
+            <img
+              src="VSM065T2MRg.jpg"
+              alt="Оборудование для мясопереработки"
+              class="catalog-image"
+            />
+            <h3 class="catalog-item-title catalog-item-title--multiline">
+              Оборудование для<br />мясопереработки
+            </h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+      <div class="advantages-overlay"></div>
+      <div class="advantages-decoration"></div>
+      <div class="advantages-content">
+        <div class="advantages-inner">
+          <h2 class="advantages-title">Наши преимущества</h2>
+          <div class="advantages-list">
+            <div class="advantage-item">
+              <div class="advantage-icon">✓</div>
+
+              <h3 class="advantage-title">Контроль качества</h3>
+            </div>
+            <div class="advantage-item">
+              <div class="advantage-icon">✓</div>
+
+              <h3 class="advantage-title">Непревзойденный вкус</h3>
+            </div>
+            <div class="advantage-item">
+              <div class="advantage-icon">✓</div>
+
+              <h3 class="advantage-title">Натуральное сырье</h3>
+            </div>
+          </div>
+          <a href="#contact" class="btn">заказать продукцию</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company History Section -->
+    <section class="history" id="about">
+      <div class="history-container">
+        <div class="history-grid">
+          <div class="history-item">
+            <div class="history-number">1</div>
+            <div class="history-content">
+              <p class="history-text">
+                Общество с ограниченной ответственностью
+                <strong>«Викос»</strong> было основано в
+                <strong>1989 году</strong> как Производственный кооператив
+                (фирма) «ВИКОС», и зарегистрировано по адресу: Гродненская
+                область, Кореличский район, д. Кальчичи.
+              </p>
+              <p class="history-text">
+                Сфера деятельности компании затронула различные отрасли пищевой
+                и не пищевой промышленности: от производства и выпуска
+                полиэтиленовых пакетов до организации продовольственных
+                магазинов.
+              </p>
+            </div>
+          </div>
+          <div class="history-item">
+            <div class="history-number">2</div>
+            <div class="history-content">
+              <p class="history-text">
+                В <strong>1994 году</strong> основателем и руководителем ООО
+                «Викос» было выбрано новое направление деятельности.
+              </p>
+              <p class="history-highlights">
+                Специи, добавки, ароматы и душистые пряности стали новым и
+                основным видом деятельности для компании.
+              </p>
+              <p class="history-text">
+                Технология переработки мясного сырья и выпуск мясопродуктов
+                превратились в страсть, которая стала новой философией компании.
+              </p>
+            </div>
+          </div>
+          <div class="history-item">
+            <div class="history-number">3</div>
+            <div class="history-content">
+              <p class="history-text">
+                В <strong>1996 году</strong> возникла необходимость обучения
+                высококлассных специалистов и разработки новых направлений
+                вкусовых и функциональных продуктов для мясопереработки. Для
+                этих целей была организована тестовая кухня – производство
+                филиал ООО «Викос» МПП Городея, в стенах которой был разработан
+                и родился рецепт многих продуктов, которые на сегодняшний день
+                можно найти в торговле и на производствах Республики Беларусь.
+                Это всем известные и полюбившиеся:
+              </p>
+              <p class="history-highlights">
+                «От бабушки», «Медовая», «Ностальгия», «Мортаделла», «От
+                дедушки», «Тещина колбаска», «Новинка».
+              </p>
+            </div>
+          </div>
+          <div class="history-item">
+            <div class="history-number">4</div>
+            <div class="history-content">
+              <p class="history-text">
+                Следуя национальным традициям, мы вкладываем всю любовь и душу в
+                то, что мы делаем и, как результат, некогда бывшая кухня для
+                разработок превратилась в
+                <strong>современное производство</strong> площадью более 5000
+                метров квадратных с высокими стандартами контроля качества.
+              </p>
+              <p class="history-text">
+                Силами работников компании были внедрены современные системы по
+                отслеживанию сырья и управленческого учета, что позволило всегда
+                вовремя и правильно реагировать на любые форс-мажорные
+                обстоятельства, выпуская
+                <strong>безопасную и вкусную продукцию</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact">
+      <div class="contact-overlay"></div>
+      <div class="contact-content">
+        <div class="contact-inner">
+          <h2 class="contact-title">У вас остались вопросы?</h2>
+          <form class="contact-form">
+            <div class="form-row">
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Имя"
+                required
+              />
+              <input
+                type="email"
+                class="form-input"
+                placeholder="E-mail"
+                required
+              />
+            </div>
+            <textarea
+              class="form-textarea"
+              placeholder="Сообщение"
+              required
+            ></textarea>
+            <button type="submit" class="btn btn--submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+          
+            
+          </div>
+          <p class="footer-copyright">
+            © 2025 ООО "Викос"<br />
+            Все права защищены.
+          </p>
+        </div>
+        <div class="footer-nav">
+          <a href="#products" class="footer-link">Продукция</a>
+          <a href="#partners" class="footer-link">Партнерам</a>
+          <a href="#contacts" class="footer-link">Контакты</a>
+        </div>
+        <div class="footer-contact">
+          <div class="contact-item">
+            <div class="contact-icon"></div>
+            <span class="contact-text">+375 17 210 59 35</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon contact-icon--email"></div>
+            <span class="contact-text">office@vikos.by</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn">Обратная связь</a>
+        <div class="footer-social">
+          <a href="#" class="social-link">#vikoslovesyou</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

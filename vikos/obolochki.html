@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оболочки - VIKOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          Arial,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+        line-height: 1.6;
+        color: #000;
+        background-color: #fff;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family:
+          Georgia,
+          -apple-system,
+          Roboto,
+          Helvetica,
+          sans-serif;
+      }
+
+      /* Header Styles */
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: #080730;
+        border-bottom: 1px solid #6a6a6a;
+        height: 103px;
+        padding: 0 21px;
+        width: 100%;
+      }
+
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1280px;
+        width: 100%;
+        .logo img {
+  margin-left: 60px; /* смещает логотип правее */
+}
+      }
+
+      .logo {
+        width: 165px;
+        height: 69px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .nav-list {
+        display: flex;
+        align-items: center;
+        height: 102px;
+        list-style: none;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        position: relative;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 700;
+        height: 50px;
+        justify-content: center;
+        padding: 0 16px;
+        text-transform: uppercase;
+        transition: background-color 0.15s;
+        text-decoration: none;
+        font-size: 15px;
+      }
+
+      .nav-link:hover {
+        background-color: #1c1a6d;
+      }
+
+      .nav-link--products {
+        width: 190px;
+        font-size: 16px;
+      }
+
+      .nav-link--about {
+        width: 180px;
+        font-size: 16px;
+      }
+
+      .nav-link--partners {
+        width: 167px;
+      }
+
+      .nav-link--contacts {
+        width: 156px;
+      }
+
+      .dropdown-arrow {
+        border-color: #fff;
+        border-right: 1px solid;
+        border-top: 1px solid;
+        height: 7px;
+        margin-left: 12px;
+        width: 7px;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-item:hover .dropdown-arrow {
+        transform: rotate(135deg);
+      }
+
+      /* Dropdown Menu */
+      .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #080730;
+        border: 1px solid #6a6a6a;
+        border-radius: 4px;
+        padding: 8px 0;
+        min-width: 190px;
+        width: 190px;
+        z-index: 1000;
+        display: none;
+      }
+
+      .nav-item:hover .nav-dropdown {
+        display: block;
+      }
+
+      .dropdown-item {
+        display: block;
+        padding: 8px 16px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: background-color 0.15s;
+      }
+
+      .dropdown-item:hover {
+        background-color: #1c1a6d;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        width: 100%;
+        height: 561px;
+        overflow: hidden;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 443px;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+      }
+
+      
+
+      .hero-title {
+        color: hsl(246, 81%, 21%);
+        font-family: "Great Vibes", cursive;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 60px;
+        text-align: center;
+      }
+
+      .page-title {
+        text-align: center;
+        padding: 40px 16px;
+        background-color: #fff;
+      }
+
+      .page-title h1 {
+        color: #1c1a6d;
+        font-family: Georgia, serif;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 43px;
+        margin-bottom: 0;
+      }
+
+      /* Content Sections */
+      .content-section {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 40px 27px;
+      }
+
+      .section-title {
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 22px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+
+      .section-text {
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 22px;
+        margin-bottom: 30px;
+      }
+
+      .advantages-text {
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 19px;
+        line-height: 22px;
+        margin-bottom: 40px;
+      }
+
+      .advantages-text strong {
+        font-weight: 700;
+      }
+
+      .product-section {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 60px;
+      }
+
+      .product-info {
+        flex: 1;
+      }
+
+      .product-image {
+        width: 477px;
+        height: 405px;
+        object-fit: cover;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+      }
+      body {
+  font-family: Arial, sans-serif; /* Унифицированный шрифт для всего текста */
+}
+
+ul {
+  list-style: none; /* Убираем точки перед элементами списка */
+  padding: 0;       /* Убираем отступы у списка */
+  margin: 0;        /* Убираем внешние отступы */
+}
+
+ul li {
+  position: relative; /* Для добавления кастомной галочки */
+  margin-bottom: 8px; /* Отступ между пунктами */
+  font-size: 16px;    /* Размер текста для списка */
+}
+
+.advantages-list li::before {
+  content: '✓';
+  color: green;
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+
+
+      .product-image-small {
+        width: 377px;
+        height: 366px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      /* Footer */
+      .footer {
+        width: 100%;
+        height: 185px;
+        background-color: #080730;
+        padding: 39px 16px 33px;
+      }
+
+      .footer-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+  width: 177px;
+  height: 80px;
+  background-image: url("main_logo.png");
+  background-size: 170px 85px; /* <-- Размер изображения */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+      .footer-copyright {
+        color: #999;
+        font-size: 13px;
+        line-height: 13px;
+        max-width: 220px;
+      }
+
+      .footer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .footer-link {
+        color: #fff;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+
+      .footer-link:hover {
+        color: #c4c4c4;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .contact-icon {
+        width: 16px;
+        height: 16px;
+        background-color: #fff;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .contact-icon--email {
+        height: 13px;
+        border-radius: 2px;
+      }
+
+      .contact-text {
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .footer-social {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      .social-link {
+        color: #c4c4c4;
+        font-weight: 700;
+        font-size: 12px;
+        text-decoration: none;
+      }
+
+      .btn {
+        background-color: #1c1a6d;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 16px 34px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.15s;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        box-shadow: 0px 3px 0px 0px #010016;
+      }
+
+      .btn:hover {
+        background-color: rgba(28, 26, 109, 0.9);
+        transform: translateY(-1px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .nav {
+          display: none;
+        }
+
+        .product-section {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .product-image,
+        .product-image-small {
+          width: 100%;
+          max-width: 400px;
+          height: auto;
+        }
+
+        .hero-title {
+          font-size: 36px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-title h1 {
+          font-size: 28px;
+        }
+
+        .section-title {
+          font-size: 28px;
+        }
+
+        .section-text,
+        .advantages-text {
+          font-size: 16px;
+        }
+
+        .footer-container {
+          flex-direction: column;
+          gap: 24px;
+          height: auto;
+        }
+
+        .footer {
+          height: auto;
+          padding: 40px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <!-- Logo -->
+        <a href="vikos.html" class="logo">
+          <img
+            src="main_logo.png"
+            alt="Логотип"
+            width="300"
+            height="100"
+            style="display: block; margin-left: 100px;"
+          />
+        </a>
+      </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+          <ul class="nav-list">
+          </li>
+          <li class="nav-item">
+            <a href="vikos.html" class="nav-link nav-link--about"
+              >Главная</a
+            >
+          </li>
+            <li class="nav-item">
+              <a href="vikos.html#products" class="nav-link nav-link--products">
+                <span>Продукция</span>
+                <div class="dropdown-arrow"></div>
+              </a>
+              <!-- Dropdown Menu -->
+              <div class="nav-dropdown">
+                <a href="obolochki.html" class="dropdown-item">оболочки</a>
+                <a href="marinad.html" class="dropdown-item">маринады</a>
+                <a href="specii.html" class="dropdown-item">специи</a>
+                <a href="#" class="dropdown-item">добавки</a>
+                <a href="#" class="dropdown-item">erp-system</a>
+                <a href="#" class="dropdown-item">оборудование</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="vikos.html#about" class="nav-link nav-link--about"
+                >О компании</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="vikos.html#partners" class="nav-link nav-link--partners"
+                >Партнерам</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="vikos.html#contacts" class="nav-link nav-link--contacts"
+                >Контакты</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <img
+        src="/Users/tatanapylinskaa/Downloads/image 1.png"
+        alt="Фиброузные оболочки"
+        class="hero-image"
+      />
+      <div class="hero-content">
+        <div style="margin-top: -100px;"></div>
+        <img
+        src="image 2.png"
+        alt="Логотип"
+        width="300"
+        height="250"
+        style="display: block;"
+      />
+        <h2 class="hero-title">Всё лучшее для успеха!</h2>
+      </div>
+    </section>
+
+    <!-- Page Title -->
+    <section class="page-title">
+      <h1>Фиброузные оболочки</h1>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="content-section">
+      <h2 class="section-title">Преимущества:</h2>
+      <div class="advantages-text">
+        <p><strong>1. ПРОЧНОСТЬ И СТОЙКОСТЬ</strong></p>
+        <p>
+          Волокнистое усиление стенок оболочки Фиброуз обеспечивает ее более
+          высокую прочность по сравнению с коллагеновыми. Значение этих свойств
+          особенно возрастает в результате применения автоматического
+          оборудования. Более стойкая оболочка обеспечивает уменьшение
+          количества разрывов, потерь клипсов, оболочки и массы, что, в конечном
+          счете, увеличивает производительность.
+        </p>
+        <p>
+          Т.о. оболочка клипсуется на всех видах клипсаторов, формуется вручную,
+          имеет повышенную фаршеемкость, выдерживает высокие режимы
+          термообработки.
+        </p>
+        <p><strong>2. СТАБИЛЬНОСТЬ КАЛИБРА</strong></p>
+        <p><strong>3. ПРОСТОТА В ИСПОЛЬЗОВАНИИ</strong></p>
+        <p><strong>4. АССОРТИМЕНТ</strong></p>
+        <p><strong>5. НИЗКАЯ БАКТЕРИАЛЬНАЯ ВОСПРИИМЧИВОСТЬ ОБОЛОЧКИ</strong></p>
+        <p><strong>6. ПАРО- И ГАЗОПРОНИЦАЕМОСТЬ</strong></p>
+        <p><strong>7. КОНТРОЛИРУЕМОСТЬ СЪЕМА ОБОЛОЧКИ</strong></p>
+        <p>
+          - фиброуз не рвется, следовательно, нет потерь времени, оболочки и
+          фарша на этапе набивки и варки;
+        </p>
+        <p>- с фиброузной оболочки не соскальзывают клипсы;</p>
+        <p>
+          - фиброузная оболочка обработана антибактериальным покрытием и нет
+          проблем с плесенью, т.е. не надо думать о препаратах от плесени, лаке
+          и т.д.
+        </p>
+        <p>- фиброуз имеет реальное перенаполнение 15 %;</p>
+        <p>- упрощенная процедура замачивания;</p>
+        <p>- увеличение производительности труда;</p>
+        <p>- в фиброузе продукция выглядит более презентабельно.</p>
+        <p>
+          Реально оценив все эти скрытые факторы, выходит, что фиброуз гораздо
+          дешевле коллагенновых оболочек и спрос на нее вызван обоснованно, и не
+          является новомодным увлечением.
+        </p>
+      </div>
+    </section>
+
+   <!-- NALO FASER Section -->
+<section class="content-section">
+  <div class="product-section">
+    <div class="product-info">
+      <h2 class="section-title">NALO FASER / НАЛО ФАЗЕР</h2>
+      <p>Усиленная вискозно-армированная целлюлозная оболочка для всех видов колбас и других продуктов. Надёжность и простота в обращении с оболочкой гарантирована производителям мясопродуктов, предприятиям розничной торговли и покупателям.</p>
+
+      <h3>Преимущества оболочки:</h3>
+      <ul>
+        <li>✓ применение на оборудовании, работающем на больших скоростях;</li>
+        <li>✓ повышенная прочность и стабильность свойств при хранении;</li>
+        <li>✓ меньшая бактериальная восприимчивость;</li>
+        <li>✓ контролируемость съёма оболочки;</li>
+        <li>✓ высокая прочность на разрыв;</li>
+        <li>✓ антиплесневая пропитка;</li>
+        <li>✓ широкая цветовая гамма;</li>
+        <li>✓ высокая проницаемость ароматических веществ при копчении;</li>
+        <li>✓ стабильность цвета в результате воздействия влаги при хранении;</li>
+        <li>✓ лёгкость нанесения маркировки и гофрирования;</li>
+        <li>✓ повышенная рентабельность по сравнению с коллагеновыми оболочками.</li>
+      </ul>
+
+      <p><strong>Форма поставки:</strong> Рулоны 500–600 м, гофрированные гусеницы по 20, 25, 33 и 35 метров. Выпускаемые калибры: 32–165</p>
+
+      <p><strong>Фиброуз N</strong> - нормальный<br>
+        <strong>Фиброуз I</strong> — прилегающий<br>
+        <strong>Фиброуз P</strong> — легкосъемный<br>
+        <strong>Фиброуз S</strong> — с шероховатой поверхностью<br>
+        <strong>Фиброуз D</strong> — двойное вискозирование для версий N, I, P - с матовой поверхностью<br>
+        <strong>NALO Смок</strong> — пропитанный коптильными веществами<br>
+        <strong>NALO Net</strong> — фиброуз в сетке</p>
+
+      <h3>Рекомендации по применению:</h3>
+      <ul>
+        <li><u>Замачивание:</u> замачивается в воде температурой 25–30 °C не менее 30 мин</li>
+        <li><u>Набивка:</u> осуществляется с 10%–ным перенаполнением. Допускается шприцевание</li>
+        <li><u>Клипсование:</u> допускается ручное или машинное</li>
+        <li><u>Термообработка:</u> стандартная, как для целлюлозных оболочек</li>
+        <li><u>Маркировка:</u> аналогична любой вискозно-армированной оболочке</li>
+        <li><u>Условия хранения:</u> в сухом, прохладном месте при t не ниже 0 °C и влажности не выше 70%</li>
+      </ul>
+    </div>
+    <img src="11.jpg" alt="NALO FASER"  />
+  </div>
+</section>
+
+<!-- NALO LINE -->
+<section class="content-section">
+  <h2 class="section-title">NALO LINE / НАЛО ЛАЙН</h2>
+  <p>Натуральная матовая поверхность, превосходные качества фиброузной оболочки. Специально для сырокопчёных и полукопчёных колбас. НалоЛайн отвечает требованиям современного естественного вида в сочетании с эффективной продуктивностью фиброузных оболочек.</p>
+
+  <h3>Преимущества оболочки:</h3>
+  <ul>
+    <li>✓ постоянство калибра;</li>
+    <li>✓ хорошее снятие с колбасного батона;</li>
+    <li>✓ качественно упакованный пакет;</li>
+    <li>✓ высокие светотехнические качества.</li>
+  </ul>
+
+  <p><strong>Тип:</strong> НалоЛайн I<br>
+  <strong>Цвет:</strong> Светлый и бак нат<br>
+  <strong>Форма поставки:</strong> Рулоны, гофрированные гусеницы. Выпускаемые калибры: 45–65</p>
+
+  <h3>Рекомендации по применению:</h3>
+  <ul>
+    <li><u>Замачивание:</u> в воде 25–30 °C, не менее 30 минут.</li>
+    <li><u>Набивка:</u> с 10–12% перенаполнением. Допускается шприцевание.</li>
+    <li><u>Клипсование:</u> фиброузные оболочки могут клипсоваться металлическими клипсами или вяжутся вручную. При клипсованиии рекомендуется учитывать соответствие размера клипсы диаметру оболочки.</li>
+    <li><u>Термообработка:</u> стандартная, с соблюдением технологии колбасного производства.</li>
+    <li><u>Маркировка:</u> как для любых вискозно-армированнах целлюлозных оболочек.</li>
+    <li><u>Условия хранения:</u> в сухом, прохладном месте при температуре не ниже 0 °C, влажности не выше 70%.</li>
+  </ul>
+</section>
+
+<!-- NALO -->
+<section class="content-section">
+  <div class="product-section">
+    <div class="product-info">
+      <h2 class="section-title">NALO / НАЛО</h2>
+      <p>Оболочка из сшитого фиброуза для всех видов колбас и других продуктов. Надёжность и простота в обращении с оболочкой гарантирована производителям мясопродуктов, предприятиям розничной торговли и покупателям.</p>
+
+      <h3>Преимущества оболочки:</h3>
+      <ul>
+        <li>✓ привлекательный внешний вид продукту придает двойной шов из ниток различного цвета;</li>
+        <li>✓ привлекает покупателя своим простым натуральным внешним видом;</li>
+        <li>✓ многообразие цветов и форм различной тематики;</li>
+        <li>✓ контролируемость съёма оболочки;</li>
+        <li>✓ высокая проницаемость ароматических веществ при копчении.</li>
+      </ul>
+
+      <p><strong>FASER L</strong> — прилегающий<br>
+         <strong>FASER N</strong> — нормальный<br>
+         <strong>FASER P</strong> — легкосъемный<br>
+         <strong>FASER S</strong> — с шероховатой поверхностью</p>
+
+      <p><strong>Форма поставки:</strong> В связках по 25 штук</p>
+
+      <h3>Рекомендации по применению:</h3>
+      <ul>
+        <li><u>Замачивание:</u> сшитый фиброуз замачивается в воде под температурой 30 - 40 °C не менее 10 минут.</li>
+        <li><u>Набивка:</u> набивка Faser по форме, плотно, допускается шприцевание.</li>
+        <li><u>Клипсование:</u> фиброузные оболочки могут клипсоваться металлическими клипсами или вяжутся вручную. При клипсованиии рекомендуется учитывать соответствие размера клипсы диаметру оболочки. </li>
+        <li><u>Термообработка:</u> стандартная, с соблюдением технологии колбасного производства.</li>
+      </ul>
+    </div>
+    <img src="obol2.png" alt="NALO FASER" style="width: 250%; transform: translateX(-200px);" />
+
+
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+           
+          </div>
+          <p class="footer-copyright">
+            © 2025 ООО "Викос"<br />
+            Все права защищены.
+          </p>
+        </div>
+        <div class="footer-nav">
+          <a href="index.html#products" class="footer-link">Продукция</a>
+          <a href="#partners" class="footer-link">Партнерам</a>
+          <a href="index.html#contacts" class="footer-link">Контакты</a>
+        </div>
+        <div class="footer-contact">
+          <div class="contact-item">
+            <div class="contact-icon"></div>
+            <span class="contact-text">+375 17 210 59 35</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon contact-icon--email"></div>
+            <span class="contact-text">office@vikos.by</span>
+          </div>
+        </div>
+        <a href="vikos.html#contact" class="btn">Обратная связь</a>
+        <div class="footer-social">
+          <a href="#" class="social-link">#vikoslovesyou</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
